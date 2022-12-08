@@ -1,0 +1,17 @@
+<%- include('layout-start') %> 
+    <div class="promos-list">
+        <h2 class="promos-list__title">Promo</h2>
+        <div class="promos-list__promo-container">
+            <% promo.forEach(promosi => { %>
+                <div class="promo-item">
+                    <div class="promo-item__image-container">
+                         <img src=<%= promosi.imagePath %>  alt="" class="promo-item__image">
+                    </div>
+                    <div class="promo-item__promo-text">
+                        <a href=<%= promosi.actualPage %>><%= promosi.text %></a>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+<%- include('layout-end') %> 

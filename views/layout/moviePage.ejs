@@ -1,0 +1,51 @@
+<%- include('layout-start') %> 
+<div id="film">
+    <div class="film__trailer-container">
+        <iframe class="film__trailer" src=<%= movie.trailerLink %>  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="film__content">
+        <div class="film__title"><%= movie.title %></div>
+        <div class="film__title-sub"><%= movie.mainGenre %>  | <%= movie.minutes %> | <%= movie.ageRestriction %></div>
+        <div class="film__detail">
+            <div class="detail__image-container">
+                <img class="detail__image" src="../<%- movie.imagePath %>"  alt="poster_pussInTheBoots">
+            </div>
+            <div class="detail__desc">
+                <div class="desc__title">Director</div>
+                <div class="desc__title-sub"><%= movie.director %></div>
+                <div class="desc__title">Cast</div>
+                <div class="desc__title-sub"><%= movie.cast %></div>
+                <div class="desc__title">Genre</div>
+                <div class="desc__title-sub"><%= movie.genre %></div>
+                <div class="desc__title">Language</div>
+                <div class="desc__title-sub"><%= movie.language %></div>
+                <div class="desc__title">Subtitle</div>
+                <div class="desc__title-sub"><%= movie.subtitle %></div>
+            </div>
+            
+        </div>
+        <% if (movie.status == "NP") {%> 
+            <div class="detail__buy-ticket">
+                <div class="buy-ticket__title">Buys Ticket At</div>
+                <div class="buy-ticket__ticket-container flex-rw">
+                    <% movie.ticketAt.forEach(vendor => { %> 
+                        <% if (vendor.vendorName == "CGV") { %>
+                            <%- include("../partial/ticketVendor__CGV", {link: vendor.ticketLink}) %> 
+                        <% } %>
+                        <% if (vendor.vendorName == "gotix") { %>
+                            <%- include("../partial/ticketVendor__GOTIX", {link: vendor.ticketLink}) %> 
+                        <% } %>
+                        <% if (vendor.vendorName == "cinepolis") { %>
+                            <%- include("../partial/ticketVendor__cinepolis", {link: vendor.ticketLink}) %> 
+                        <% } %>
+                    <% }); %>
+                </div>
+            </div>
+        <% } %> 
+        <div class="detail__synopsis">
+            <div class="synopsis__title">Synopsis</div>
+            <p class="synopsis__text"><%= movie.synopsis %></p>
+        </div>
+    </div>
+</div>
+<%- include('layout-end') %> 

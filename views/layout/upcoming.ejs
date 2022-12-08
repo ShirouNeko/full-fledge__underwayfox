@@ -1,0 +1,16 @@
+<%- include('layout-start') %> 
+            <div id="now-playing-list">
+                <h2 class="now-playing-list__title">Upcoming</h2>
+                <div class="now-playing-list__film-container">
+                    <% movies.forEach(movie => {%> 
+                    <div class="film-card">
+                        <div class="film-card__image-container">
+                            <a href="/movie/<%- movie['_id'].toString() %>">
+                                <img src=<%= movie.imagePath %>  alt="" class="film-card__image">
+                            </a>
+                        </div>
+                    </div>
+                    <% }); %> 
+                </div>
+            </div>
+<%- include('layout-end') %> 

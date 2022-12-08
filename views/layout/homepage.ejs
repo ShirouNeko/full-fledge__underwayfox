@@ -1,0 +1,41 @@
+            <%- include('layout-start') %> 
+            <div id="now-playing">
+                <h2 class="now-playing__title">Now Playing</h2>
+                <div id="now-playing__movie-container">
+                    <% for (let i = 0; i < moviesLen; i++) { %> 
+                        <div class="movie-card">
+                            <div class="movie-card__poster">
+                                <% if (movies[i].isRecomended) { %>
+                                    <%- include("../partial/homepage__recomended-film") %> 
+                                <% } %>
+                                <div class="movie-card__image-container">
+                                    <a href="/movie/<%- movies[i]["_id"].toString() %> ">
+                                        <img src=<%= movies[i].imagePath %>  alt="poster_pussInTheBoots" class="movie-card__image">
+                                    </a>
+                                </div>
+                                <div class="movie-card__age"><%= movies[i].ageRestriction %> </div>
+                            </div>
+                            <div class="movie-card__desc">
+                                <div class="movie-card__title"><a href="/movie/<%- movies[i]["_id"].toString() %>"><%= movies[i].title %> </a></div>
+                                <div class="movie-card__main-genre"><%= movies[i].mainGenre %></div>
+                            </div>
+                        </div>
+                    <% }; %> 
+                </div>
+            </div>
+            <div id="promos">
+                <h2 class="promos__title">Promo</h2>
+                <div id="promos__promo-container">
+                    <% for (let i = 0; i < promosLen; i++) { %> 
+                        <div class="promo-card">
+                            <div class="promo-card__image-container">
+                                <img src=<%= promos[i].imagePath %>   class="promo-card__image">
+                            </div>
+                            <div class="promo-card__text">
+                                <a href=<%= promos[i].actualPage %> target="_blank"><%= promos[i].text %></a>
+                            </div>
+                        </div>
+                    <% }; %> 
+                </div>
+            </div>
+            <%- include('layout-end') %> 
