@@ -474,8 +474,6 @@ a:hover {
     #promos__promo-container {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-        grid-template-areas: "pm-1 pm-2" "pm-3 pm-4";
         grid-gap: 10px;
     }
     
@@ -575,8 +573,6 @@ a:hover {
     #promos__promo-container {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-        grid-template-areas: "pm-1 pm-2" "pm-3 pm-4";
         grid-gap: 10px;
     }
 
